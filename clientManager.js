@@ -9,7 +9,6 @@ var server = require('http').createServer();
 var io = require('socket.io')(server);
 
 var mysqlConnector = require('./mysqlConnector');
-var connector = new mysqlConnector;
 
 var zmqConnector = require('./zmqConnector');
 var streamingConnector = new zmqConnector();
@@ -30,23 +29,18 @@ var checkParameters = function(userParams){
 
 io.on('connection', function (socket) {
     var emit, onError, zmqSocket;
+    var connector = new mysqlConnector();
 
     emit = function(type, message){
-        console.log(message);
         socket.emit(type, message);
     };
 
     onError = function(error){
         console.log(error);
         socket.emit(config.eventsNames.error, error);
-
     };
 
     socket.on('disconnect', function() {
-        zmqSocket.close();
-    });
-
-    socket.on('error', function() {
         zmqSocket.close();
     });
 

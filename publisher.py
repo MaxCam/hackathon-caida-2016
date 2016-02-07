@@ -12,7 +12,6 @@ class ZmqPublisher:
 
   # Data is assummed to be map which has 'prefix' and 'router' attributes atleast
   def publish(self, data):
-    print(data)
     data_str = json.dumps(data)
     self.socket.send_string('p-%s' % data['prefix'], zmq.SNDMORE)
     self.socket.send_string(data_str)

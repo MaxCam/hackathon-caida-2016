@@ -9,7 +9,7 @@
 
         var socket = io("http://localhost:8080", { path : "/socket.io" });
 
-        socket.emit("bgp_subscribe", { prefix: "2001:4830:3000::/48" });
+        socket.emit("bgp_subscribe", { prefix: "110.170.17.0/24" });
 
         socket.on("bgp_dumpLine", function(result){
             console.log("I received ", result);

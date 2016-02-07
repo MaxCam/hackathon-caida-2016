@@ -12,7 +12,7 @@ class MySqlDAL(threading.Thread):
     self.limit = 5000
 
   def connect(self):
-    self.db = MySQLdb.connect("127.0.0.1","root","","bgplay")
+    self.db = MySQLdb.connect("127.0.0.1","has","mohib","koken")
     self.cursor = self.db.cursor()
 
   def add(self, route):

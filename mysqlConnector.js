@@ -13,7 +13,7 @@ var mysqlConnector = function (){
 
     table = config.table;
 
-    connection.connect();
+    // connection.connect();
 
     this.getDumpByPrefix = function (prefix, callback, onError){
         var query;
@@ -50,7 +50,7 @@ var mysqlConnector = function (){
         this.close();
     };
 
-    this.close = function (){
+    this.close = function () {
         connection.end();
     }
 };

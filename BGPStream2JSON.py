@@ -59,6 +59,7 @@ def generate_stream():
             msg = elem2bgplay(rec, elem)
             msg['type'] = 'A'
             msg['id'] = input_id
+            print(msg)
 
             # Publish the message
             publisher.publish(msg)

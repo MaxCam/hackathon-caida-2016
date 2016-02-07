@@ -1,8 +1,8 @@
 var config = {
     host: "localhost",
-    user: "root",
-    password: "",
-    database: "bgplay",
+    user: "has",
+    password: "mohib",
+    database: "koken",
     table: "bgp_routes",
     port:8080,
 
